@@ -1,0 +1,35 @@
+{
+	"labels": {
+		"menu": {
+			"item": {
+				"search": "Search"
+			}
+		},
+		"mod-inv-search": {
+			"filter": {
+				"rarity": {
+					"name": {
+						"all": "All",
+						"low": "Low",
+						"normal": "Normal",
+						"rare": "Rare",
+						"legendary": "Legendary",
+						"unique": "Unique",
+						"backer": "Backer",
+						"scale": "Ascended"
+					},
+					"description": {
+						"all": "Do not filter by rarity",
+						"low": "Filter by Low",
+						"normal": "Filter by Normal",
+						"rare": "Filter by Rare",
+						"legendary": "Filter by Legendary",
+						"unique": "Filter by Unique",
+						"backer": "Filter by Backer",
+						"scale": "Filter by Ascended"
+					}
+				}
+			}
+		}
+	}
+}
