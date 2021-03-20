@@ -1,7 +1,7 @@
 # CCInventorySearch
 Inventory search feature for CrossCode.
 
-One rainy day I going about bashing bushes for items, I had so many that it was tedious to scroll through and find what I was looking for.
+One rainy day I was going about bashing bushes for items, I had so many items that it was tedious to scroll through my inventory to find what I was looking for.
 Thus I present a way to search your inventory by item name!
 
 You are able to search by name and filter by item rarity.
@@ -18,5 +18,5 @@ You are able to search by name and filter by item rarity.
 	* Korean
 	* Japanese
 
-## CrossCode modding discord
+## CrossCode modding Discord
 [![Discord Server](https://img.shields.io/discord/382339402338402315.svg?label=Discord%20Server)](https://discord.gg/TFs6n5v)
