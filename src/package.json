@@ -1,7 +1,7 @@
 {
 	"name": "inventory-search",
-	"ccmodHumanName": "Inventory Search",
-	"version": "0.0.1",
+	"ccmodHumanName": "CCInventorySearch",
+	"version": "1.0.0",
 	"prestart": "prestart.js",
 	"module": true,
 	"ccmodDependencies": {
