@@ -1,4 +1,3 @@
-*.py
-bin
-releases
-.vscode
+node_modules
+dist
+*.code-workspace

@@ -1,0 +1,98 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run",
+			"type": "shell",
+			"command": "ii $env:ccpath\\CrossCode.exe",
+			"problemMatcher": [],
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Clear assets",
+				"Move assets",
+				"Move ccmod.json",
+				"Build TypeScript",
+				"Zip",
+				"Copy Zip to CC"
+			]
+		},
+		{
+			"label": "Build release",
+			"type": "shell",
+			"command": "echo \"Done\"",
+			"problemMatcher": [],
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Clear assets",
+				"Move assets",
+				"Move ccmod.json",
+				"Build TypeScript",
+				"Zip",
+				"Copy Zip to CC"
+			]
+		},
+		{
+			"label": "Build",
+			"type": "shell",
+			"command": "echo \"Done\"",
+			"problemMatcher": [],
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Clear assets",
+				"Move assets",
+				"Move ccmod.json",
+				"Build TypeScript"
+			]
+		},
+		{
+			"label": "Clear assets",
+			"type": "shell",
+			"command": "Remove-Item -Path (Join-Path ${workspaceFolder} -ChildPath \"dist\\assets\") -Force -Recurse",
+			"problemMatcher": []
+		},
+		{
+			"label": "Move assets",
+			"type": "shell",
+			"command": "Copy-Item -Path (Join-Path -Path ${workspaceFolder} -ChildPath \"src\\assets\") -Destination \"${workspaceFolder}\\dist\" -Recurse",
+			"problemMatcher": []
+		},
+		{
+			"label": "Build TypeScript",
+			"type": "shell",
+			"command": "tsc --project \"${workspaceFolder}\\tsconfig.json\" --outDir \"${workspaceFolder}\\dist\\${workspaceFolderBasename}\"",
+			"problemMatcher": "$tsc"
+		},
+		{
+			"label": "Move ccmod.json",
+			"type": "shell",
+			"command": "Copy-Item -Path (Join-Path -Path ${workspaceFolder} -ChildPath \"ccmod.json\") -Destination \"${workspaceFolder}\\dist\" -Recurse",
+			"problemMatcher": []
+		},
+		{
+			"label": "Zip",
+			"type": "shell",
+			"command": "cd dist; 7z a -tzip \"${workspaceFolderBasename}.ccmod\" \"${workspaceFolder}\\dist\\*\" -xr!'*.ccmod'",
+			"problemMatcher": []
+		},
+		{
+			"label": "Copy Zip to CC",
+			"type": "shell",
+			"command": "Copy-Item -Path \"${workspaceFolder}\\dist\\${workspaceFolderBasename}.ccmod\" -Destination (Join-Path -Path $env:ccpath -ChildPath \\assets\\mods)",
+			"problemMatcher": []
+		},
+		{
+			"label": "Remove existing links",
+			"type": "shell",
+			"command": "Set-Location -Path (Join-Path -Path $env:ccpath -ChildPath \"assets/mods/\"); Get-ChildItem | %{$rp = ([bool]($_.Attributes -band [IO.FileAttributes]::ReparsePoint)); if ($rp) {$_.Delete()}}",
+			"problemMatcher": []
+		},
+		{
+			"label": "Link folder",
+			"type": "shell",
+			"command": "New-Item -ItemType SymbolicLink -Path (Join-Path -Path $env:CCPATH -childPath \"assets/mods/${workspaceFolderBasename}\") -Target \"${workspaceFolder}\\dist\"",
+			"problemMatcher": []
+		}
+	]
+}
