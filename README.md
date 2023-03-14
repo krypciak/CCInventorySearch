@@ -6,9 +6,7 @@ Thus I present a way to search your inventory by item name!
 
 You are able to search by name and filter by item rarity.
 
-![Image showing text search](https://github.com/Naxane/CCInventorySearch/blob/main/docs/media/screenshots/Cro.png)
-![Another image showing text search](https://github.com/Naxane/CCInventorySearch/blob/main/docs/media/screenshots/San.png)
-![Image showing filtering by rarity](https://github.com/Naxane/CCInventorySearch/blob/main/docs/media/screenshots/RarityFilter.png)
+![Image showing text search](https://github.com/Naxane/CCInventorySearch/blob/main/docs/media/screenshots/search.gif)
 
 # Dependencies
 This mod depends on the following:
