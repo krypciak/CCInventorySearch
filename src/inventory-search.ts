@@ -17,7 +17,7 @@ ig.module("nax-inventory-search.inventory-search").requires(
 			let searchTabButton = this._createTabButton(
 				"search",
 				"item-search",
-				9,
+				this.tabArray.length,
 				// @ts-ignore Enum hackery
 				"SEARCH"
 			);
