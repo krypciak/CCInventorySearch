@@ -1,11 +1,14 @@
 {
   "id": "nax-inventory-search",
   "version": "2.0.0",
-  "name": "Inventory Search",
+  "title": "Inventory Search",
   "description": "An inventory search mod for CrossCode.",
-  "plugin": "nax-inventory-search/plugin.js",
+  "repository": "https://github.com/conorlawton/CCInventorySearch",
+  "tags": ["QoL"],
+  "authors": "nax",
   "dependencies": {
     "nax-ccuilib": ">=1.1.0",
     "nax-module-cache": ">=1.0.0"
-  }
+  },
+  "plugin": "nax-inventory-search/plugin.js"
 }
