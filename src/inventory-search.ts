@@ -319,6 +319,16 @@ ig.module("nax-inventory-search.inventory-search").requires(
 
 		filterList(sender) {
 			sc.Model.notifyObserver(this, sc.MENU_EVENT.FILTER_LIST, sender);
+		},
+
+		getCurrentTabType() {
+			/* When the player has no toggleable items, the toggle tab does not show, and the game
+			 * thinks the search tab is the toggle tab, and that causes clicking on the non-toggleable
+			 * items to trigger a function to to toggle the item which crashes the game. */
+			if (this.itemCurrentTab == 8 /* <- the toggle tab index */ && !sc.model.player.hasAnyToggleItems()) {
+				return 'SEARCH'
+			}
+			return this.parent()
 		}
 	});
 
