@@ -13,11 +13,12 @@ ig.module("nax-inventory-search.inventory-search").requires(
 		init(...args) {
 			this.parent(...args);
 
+			const index = this.tabArray.length
 			// Create the new tab button
 			let searchTabButton = this._createTabButton(
 				"search",
 				"item-search",
-				this.tabArray.length,
+				index,
 				// @ts-ignore Enum hackery
 				"SEARCH"
 			);
@@ -26,7 +27,7 @@ ig.module("nax-inventory-search.inventory-search").requires(
 			this.tabs.search = searchTabButton;
 
 			// Add this so that last cursor position is stored for items
-			this._lastCursorPos[9] = {
+			this._lastCursorPos[index] = {
 				x: 0,
 				y: 0,
 				scroll: 0,
